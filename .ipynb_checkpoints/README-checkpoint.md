@@ -22,8 +22,9 @@ File Directories are as follows:
         ├── module_sf_noahmp_groundwater.F
         └── module_sf_noahmplsm.F
 ```
-
+<span style="color:red">
 ### module_sf_noahmpdrv.F 
+</span>
 
 The driver contains most of the changes for the mosaic scheme, found starting at line **3780**. The first new sub-routine assignes the new mosaic variables based on what was already assigned in the normal noah-MP init subroutine. 
 
