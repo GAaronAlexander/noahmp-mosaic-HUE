@@ -22,9 +22,7 @@ File Directories are as follows:
         ├── module_sf_noahmp_groundwater.F
         └── module_sf_noahmplsm.F
 ```
-<span style="color:red">
-### module_sf_noahmpdrv.F 
-</span>
+## module_sf_noahmpdrv.F 
 
 The driver contains most of the changes for the mosaic scheme, found starting at line **3780**. The first new sub-routine assignes the new mosaic variables based on what was already assigned in the normal noah-MP init subroutine. 
 
@@ -44,17 +42,17 @@ The general way the mosaic module works is :
 Land-cover averaging is a bit nuanced, as some land-covers do not have vegetation. This means that there are some times that we have to 'inflate' some vegetation specific values. For example: Vegetation temperature (TV) only is defined if there is vegetation on the grid. If there is a UCM or if there is a barren land-cover type, no vegetation is defined. In the mosiac averageing, we remove that value from the land-cover average to ensure that we have realistic values for the grid average vegetation temperature. 
 
 
-### module_sf_noahmplsm.F
+## module_sf_noahmplsm.F
 
 This is the changed around noah-mp column model for the LSM. The big difference from normal Noah-MP and this module is the change of a copy soil moisture value, and input/output values for extraction and scaling of soil moisture and runon terms. There is also a new green roof module that is not currently in use, but will be added in the next few months. 
 
 Extra soil moisture is to ensure that we are always evaluating the potential ET correctly (e.g. the soil stress is accounted for correctly). The new values of soil moisture and runon are always evaluated for the land-type we are currently in, and will be appropriatly added to the next land-cover value if HUE is engaged (iopt_HUE == 1). 
 
-### MPTABLE.noahmp-mosaic-hue-NLCD40.TBL
+## MPTABLE.noahmp-mosaic-hue-NLCD40.TBL
 
 This is the MPTABLE that contains the constants for noah-MP mosaic, HUE, which exclusively uses the NLCD40 land-cover dataset. note that this does not have the Urban climate zones integrated directly, so that will need to be addressed. 
 
-### Drivers & IO: 
+## Drivers & IO: 
 I have also given the hrldas driver and the IO driver for netcdfs. The hrldas driver requird a change to the namelists, as well as variable initilization. The current WRF model implementation that I am running also builds on this framework, but within the registry files for WRF. 
 
 IO is also added, because in HRLDAS, you must read in a few extra variables (LANDUSEF) from a geogrid file to be able to sort through the land-covers. 
