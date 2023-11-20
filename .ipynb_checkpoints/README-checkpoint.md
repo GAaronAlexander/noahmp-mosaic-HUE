@@ -3,7 +3,7 @@
 This github branch contains the new mosaic scheme and Heterogenous Urban Environments (HUE) in the older version of Noah-MP. 
 
 File Directories are as follows:  
-'''
+```
     .
     ├── drivers
     │   └── wrf
@@ -21,7 +21,7 @@ File Directories are as follows:
         ├── module_sf_noahmp_glacier.F
         ├── module_sf_noahmp_groundwater.F
         └── module_sf_noahmplsm.F
-'''
+```
 
 ### module_sf_noahmpdrv.F 
 
