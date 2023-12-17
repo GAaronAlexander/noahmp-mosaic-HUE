@@ -6138,7 +6138,7 @@ type(noahmp_parameters) :: parameters
 
                ! These are needed for the
 
-               MOSAIC_LOOP : DO mosaic_i = mosaic_cat, 1, -1 !looping from the nth mosaic catagory to the largest mosaic catagory
+               MOSAIC_LOOP : DO mosaic_i = 1,mosaic_cat !looping from the nth mosaic catagory to the largest mosaic catagory
 
                ! We need to move from our 3D data to the 2D data sets
                !These are the IN/Out values that have an LSM equivelant
